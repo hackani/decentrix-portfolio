@@ -1,12 +1,18 @@
 "use client"
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
+import { Points as DreiPoints, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 import * as THREE from 'three';
 
-function Stars(props: any) {
-  const ref = useRef<THREE.Points>(null);
+// Since we're spreading props onto DreiPoints, we should extend from its props type
+type StarsProps = Partial<THREE.Points> & {
+  stride?: number;
+  frustumCulled?: boolean;
+}
+
+function Stars(props: StarsProps) {
+  const ref = useRef<THREE.Points<THREE.BufferGeometry, THREE.PointsMaterial>>(null);
   
   // Move sphere generation to useMemo to prevent recreation on every render
   const sphere = useMemo(() => {
@@ -33,7 +39,7 @@ function Stars(props: any) {
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points
+      <DreiPoints
         ref={ref}
         positions={sphere}
         stride={3}
@@ -47,7 +53,7 @@ function Stars(props: any) {
           sizeAttenuation={true}
           depthWrite={false}
         />
-      </Points>
+      </DreiPoints>
     </group>
   );
 }

@@ -2,11 +2,25 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+interface Dimensions {
+  width: number;
+  height: number;
+}
+
+interface Shape {
+  id: number;
+  type: 'circle' | 'square';
+  size: number;
+  color: string;
+}
+
 export default function FloatingShapes() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = useState<Dimensions>({ width: 800, height: 600 });
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+    
     const updateDimensions = () => {
       setDimensions({
         width: window.innerWidth,
@@ -16,7 +30,6 @@ export default function FloatingShapes() {
 
     // Set initial dimensions
     updateDimensions();
-    setIsClient(true);
 
     // Add event listener for window resize
     window.addEventListener('resize', updateDimensions);
@@ -25,9 +38,10 @@ export default function FloatingShapes() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
+  // Don't render anything on server-side
   if (!isClient) return null;
 
-  const shapes = Array(20).fill(null).map((_, index) => ({
+  const shapes: Shape[] = Array(20).fill(null).map((_, index) => ({
     id: index,
     type: Math.random() > 0.5 ? 'circle' : 'square',
     size: Math.random() * 40 + 20,
