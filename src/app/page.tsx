@@ -7,8 +7,89 @@ import ParallaxSection from "@/components/ParallaxSection";
 import { motion } from "framer-motion";
 import ScrollableProjects from '@/components/ScrollableProjects';
 import ScrollableTeam from '@/components/ScrollableTeam';
+import { useState } from "react";
+import { ContactFormData, ContactFormStatus } from "@/types/contact";
 
 export default function Home() {
+  // Form state
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: "",
+    email: "",
+    message: ""
+  });
+  
+  // Form status
+  const [formStatus, setFormStatus] = useState<ContactFormStatus>({
+    isSubmitting: false,
+    isSubmitted: false,
+    error: ""
+  });
+
+  // Handle input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate form
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        error: "Please fill in all fields"
+      });
+      return;
+    }
+    
+    try {
+      setFormStatus({
+        isSubmitting: true,
+        isSubmitted: false,
+        error: ""
+      });
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+      
+      // Success
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: true,
+        error: ""
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        error: error instanceof Error ? error.message : 'An error occurred'
+      });
+    }
+  };
+  
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -167,41 +248,77 @@ export default function Home() {
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           </div>
           <div className="max-w-3xl mx-auto">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-gray-700 mb-2">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                    placeholder="Your Email"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Message</label>
-                <textarea
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 h-32"
-                  placeholder="Your Message"
-                ></textarea>
-              </div>
-              <div className="text-center">
+            {formStatus.isSubmitted ? (
+              <div className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-lg text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto mb-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                <p>Your message has been sent successfully. We will get back to you soon.</p>
                 <button
-                  type="submit"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  onClick={() => setFormStatus(prev => ({ ...prev, isSubmitted: false }))}
+                  className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
                 >
-                  Send Message
+                  Send Another Message
                 </button>
               </div>
-            </form>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {formStatus.error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg">
+                    {formStatus.error}
+                  </div>
+                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 h-32"
+                    placeholder="Your Message"
+                  ></textarea>
+                </div>
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    disabled={formStatus.isSubmitting}
+                    className={`bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-colors ${
+                      formStatus.isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-700'
+                    }`}
+                  >
+                    {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>
