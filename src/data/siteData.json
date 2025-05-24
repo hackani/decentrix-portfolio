@@ -1,0 +1,214 @@
+{
+  "company": {
+    "name": "Webverse",
+    "tagline": "Transforming Ideas into Digital Reality",
+    "description": "Creating digital experiences that inspire and innovate."    
+  },
+  "navigation": [
+    {
+      "name": "Home",
+      "href": "#home"
+    },
+    {
+      "name": "About",
+      "href": "#about"
+    },
+    {
+      "name": "Services",
+      "href": "#services"
+    },
+    {
+      "name": "Projects",
+      "href": "#projects"
+    },
+    {
+      "name": "Team",
+      "href": "#team"
+    },
+    {
+      "name": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "hero": {
+    "title": "Welcome to Webverse",
+    "subtitle": "Transforming Ideas into Digital Reality",
+    "cta": {
+      "text": "Get Started",
+      "href": "#contact"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Who We Are",
+    "parallaxBg": "/bg/parallax-bg.jpg",
+    "image": "/about/about.jpg",
+    "description": "Webverse is a leading web development company specializing in creating innovative digital solutions. With years of experience and a passionate team, we transform ideas into powerful web applications.",
+    "stats": [
+      {
+        "number": "100+",
+        "label": "Projects Completed"
+      },
+      {
+        "number": "50+",
+        "label": "Happy Clients"
+      }
+    ]
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      {
+        "title": "Web Development",
+        "description": "Custom web applications built with modern technologies",
+        "icon": "🌐"
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Beautiful and intuitive user interfaces that engage",
+        "icon": "🎨"
+      },
+      {
+        "title": "E-commerce Solutions",
+        "description": "Scalable online stores with secure payment integration",
+        "icon": "🛍️"
+      },
+      {
+        "title": "Digital Marketing",
+        "description": "Strategic marketing to boost your online presence",
+        "icon": "📈"
+      },
+      {
+        "title": "Mobile Apps",
+        "description": "Cross-platform mobile applications for iOS and Android",
+        "icon": "📱"
+      },
+      {
+        "title": "Cloud Solutions",
+        "description": "Scalable cloud infrastructure and deployment",
+        "icon": "☁️"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Our Projects",
+    "items": [
+      {
+        "title": "E-Waste Management System",
+        "category": "Web Development",
+        "image": "/projects/project1.png",
+        "description": "A full-featured e-commerce platform with modern UI and secure payments"
+      },
+      {
+        "title": "Criminal Record Management System",
+        "category": "Blockchain",
+        "image": "/projects/project2.png",
+        "description": "Intuitive dashboard for healthcare professionals to manage patient data"
+      },
+      {
+        "title": "Parking Lot Management System",
+        "category": "Web Development",
+        "image": "/projects/project3.png",
+        "description": "Cross-platform social media application with real-time features"
+      },
+      {
+        "title": "Dynamic Admin Dashboard",
+        "category": "Web Development",
+        "image": "/projects/project4.png",
+        "description": "Cross-platform social media application with real-time features"
+      }
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "members": [
+      {
+        "name": "Kanishk Chaudhari",
+        "role": "Backend Developer",
+        "image": "/teams/team1.jpg",
+        "bio": "Visionary leader with 15+ years of tech experience"
+      },
+      {
+        "name": "Jems Patel",
+        "role": "Frontend Developer",
+        "image": "/teams/team2.jpg",
+        "bio": "Full-stack developer with expertise in modern web technologies"
+      },
+      {
+        "name": "Vraj Patel",
+        "role": "UI/UX Designer",
+        "image": "/teams/team3.jpg",
+        "bio": "Creative designer focused on user-centered experiences"
+      },
+      {
+        "name": "Dev Patel",
+        "role": "AI/ML Engineer",
+        "image": "/teams/team4.jpg",
+        "bio": "Experienced manager ensuring smooth project delivery"
+      }
+    ]
+  },
+  "footer": {
+    "quickLinks": [
+      {
+        "name": "About Us",
+        "href": "#about"
+      },
+      {
+        "name": "Services",
+        "href": "#services"
+      },
+      {
+        "name": "Projects",
+        "href": "#projects"
+      },
+      {
+        "name": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "services": [
+      "Web Development",
+      "UI/UX Design",
+      "E-commerce Solutions",
+      "Digital Marketing"
+    ],
+    "contactInfo": {
+      "email": "kanishkchaudhary2005@gmail.com",
+      "phone": "+91 7016525208",
+      "address": "B-302, Shikshapatri Skyline, Sargasan, Gandhinagar, Gujarat, India, 382421"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "placeholder": "Your Name"
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "email",
+          "placeholder": "Your Email"
+        },
+        {
+          "name": "message",
+          "label": "Message",
+          "type": "textarea",
+          "placeholder": "Your Message"
+        }
+      ],
+      "submitButton": {
+        "text": "Send Message"
+      }
+    }
+  },
+  "metadata": {
+    "title": "Webverse - Web Development Solutions",
+    "description": "Professional web development services for modern businesses"
+  }
+} 
