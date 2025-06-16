@@ -21,7 +21,14 @@ export default function RootLayout({
         <nav className="fixed w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm">
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <img 
+                  src={siteData.company.logo} 
+                  alt={`${siteData.company.name} Logo`} 
+                  className="h-8 w-8 rounded-full"
+                />
               <div className="text-2xl font-bold text-blue-600">{siteData.company.name}</div>
+              </div>
               <div className="hidden md:flex space-x-8">
                 {siteData.navigation.map((item) => (
                   <a 

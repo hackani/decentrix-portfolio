@@ -1,6 +1,7 @@
 {
   "company": {
     "name": "Webverse",
+    "logo": "/logo-c.svg",
     "tagline": "Transforming Ideas into Digital Reality",
     "description": "Creating digital experiences that inspire and innovate."    
   },
