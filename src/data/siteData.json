@@ -1,6 +1,6 @@
 {
   "company": {
-    "name": "Webverse",
+    "name": "Decentrix",
     "tagline": "Transforming Ideas into Digital Reality",
     "description": "Creating digital experiences that inspire and innovate."    
   },
@@ -31,7 +31,7 @@
     }
   ],
   "hero": {
-    "title": "Welcome to Webverse",
+    "title": "Welcome to Decentrix",
     "subtitle": "Transforming Ideas into Digital Reality",
     "cta": {
       "text": "Get Started",
@@ -43,7 +43,7 @@
     "subtitle": "Who We Are",
     "parallaxBg": "/bg/parallax-bg.jpg",
     "image": "/about/about.jpg",
-    "description": "Webverse is a leading web development company specializing in creating innovative digital solutions. With years of experience and a passionate team, we transform ideas into powerful web applications.",
+    "description": "Decentrix is a leading web development company specializing in creating innovative digital solutions. With years of experience and a passionate team, we transform ideas into powerful web applications.",
     "stats": [
       {
         "number": "100+",
@@ -141,7 +141,7 @@
         "bio": "Creative designer focused on user-centered experiences"
       },
       {
-        "name": "Dev Patel",
+        "name": "Devkumar Patel",
         "role": "AI/ML Engineer",
         "image": "/teams/team4.jpg",
         "bio": "Experienced manager ensuring smooth project delivery"
@@ -208,7 +208,7 @@
     }
   },
   "metadata": {
-    "title": "Webverse - Web Development Solutions",
+    "title": "Decentrix - Web Development Solutions",
     "description": "Professional web development services for modern businesses"
   }
 } 
