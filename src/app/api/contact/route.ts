@@ -18,15 +18,15 @@ export async function POST(request: Request) {
       service: 'gmail',
       auth: {
         // Use environment variables if available, otherwise use placeholders
-        user: process.env.EMAIL_USER || 'kanishkchaudhary2005@gmail.com',
-        pass: process.env.EMAIL_PASS || 'your-app-password', // You'll need to set this up
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, // You'll need to set this up
       },
     });
 
     // Email content
     const mailOptions = {
       from: email,
-      to: process.env.EMAIL_TO || 'kanishkchaudhary2005@gmail.com',
+      to: process.env.EMAIL_TO,
       subject: `New Contact Form Submission from ${name}`,
       text: message,
       html: `
