@@ -163,7 +163,7 @@ export default function Home() {
               >
                 <Image
                   src={siteData.about.image}
-                  alt="About Webverse"
+                  alt="About Decentrix"
                   fill
                   className="object-cover rounded-lg shadow-xl"
                 />
