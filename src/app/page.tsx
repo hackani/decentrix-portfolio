@@ -7,6 +7,7 @@ import ParallaxSection from "@/components/ParallaxSection";
 import { motion } from "framer-motion";
 import ScrollableProjects from '@/components/ScrollableProjects';
 import ScrollableTeam from '@/components/ScrollableTeam';
+import Pricing from '@/components/Pricing';
 import { useState } from "react";
 import { ContactFormData, ContactFormStatus } from "@/types/contact";
 
@@ -90,8 +91,21 @@ export default function Home() {
     }
   };
   
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <div className="w-full">
+    <motion.div
+      className="w-full"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+      }}
+    >
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <AnimatedBackground />
@@ -99,9 +113,7 @@ export default function Home() {
         <div className="container mx-auto px-4 z-10">
           <motion.div 
             className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={fadeInUp}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">{siteData.hero.title}</h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">{siteData.hero.subtitle}</p>
@@ -123,20 +135,20 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={fadeInUp}
             >
               <h2 className="text-4xl font-bold mb-4 text-white">{siteData.about.title}</h2>
               <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                variants={fadeInUp}
               >
                 <h3 className="text-2xl font-semibold mb-4 text-white">{siteData.about.subtitle}</h3>
                 <p className="text-gray-300 mb-6">{siteData.about.description}</p>
@@ -156,10 +168,10 @@ export default function Home() {
               </motion.div>
               <motion.div 
                 className="relative h-[400px]"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                variants={fadeInUp}
               >
                 <Image
                   src={siteData.about.image}
@@ -178,10 +190,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
           >
             <h2 className="text-4xl font-bold mb-4">{siteData.services.title}</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -191,10 +203,13 @@ export default function Home() {
               <motion.div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                variants={{
+                  ...fadeInUp,
+                  visible: { ...fadeInUp.visible, transition: { ...fadeInUp.visible.transition, delay: index * 0.1 } }
+                }}
                 whileHover={{ y: -5 }}
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
@@ -211,10 +226,10 @@ export default function Home() {
         <div className="container mx-auto">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
           >
             <h2 className="text-4xl font-bold mb-4">{siteData.projects.title}</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -228,10 +243,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            variants={fadeInUp}
           >
             <h2 className="text-4xl font-bold mb-4">Our Team</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -239,6 +254,13 @@ export default function Home() {
           <ScrollableTeam members={siteData.team.members} />
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <Pricing
+        title={siteData.pricing.title}
+        subtitle={siteData.pricing.subtitle}
+        plans={siteData.pricing.plans}
+      />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
@@ -322,6 +344,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }
