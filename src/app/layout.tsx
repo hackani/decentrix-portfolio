@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import siteData from "@/data/siteData.json";
@@ -22,10 +23,12 @@ export default function RootLayout({
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-2">
-                <img 
-                  src={siteData.company.logo} 
-                  alt={`${siteData.company.name} Logo`} 
-                  className="h-8 w-8 rounded-full"
+                <Image
+                  src={siteData.company.logo}
+                  alt={`${siteData.company.name} Logo`}
+                  width={32}
+                  height={32}
+                  className="rounded-full"
                 />
               <div className="text-2xl font-bold text-blue-600">{siteData.company.name}</div>
               </div>
