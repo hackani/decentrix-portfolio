@@ -1,6 +1,6 @@
 {
   "company": {
-    "name": "Decentrix",
+    "name": "SiteCrafters",
     "logo": "/logo-c.svg",
     "tagline": "Transforming Ideas into Digital Reality",
     "description": "Creating digital experiences that inspire and innovate."    
@@ -9,10 +9,6 @@
     {
       "name": "Home",
       "href": "#home"
-    },
-    {
-      "name": "About",
-      "href": "#about"
     },
     {
       "name": "Services",
@@ -87,10 +83,10 @@
     ]
   },
   "hero": {
-    "title": "Welcome to Decentrix",
+    "title": "Welcome to SiteCrafters",
     "subtitle": "Transforming Ideas into Digital Reality",
     "cta": {
-      "text": "Get Started",
+      "text": "Book Now",
       "href": "#contact"
     }
   },
@@ -99,7 +95,7 @@
     "subtitle": "Who We Are",
     "parallaxBg": "/bg/parallax-bg.jpg",
     "image": "/about/about.jpg",
-    "description": "Decentrix is a leading web development company specializing in creating innovative digital solutions. With years of experience and a passionate team, we transform ideas into powerful web applications.",
+    "description": "SiteCrafters is a leading web development company specializing in creating innovative digital solutions. With years of experience and a passionate team, we transform ideas into powerful web applications.",
     "stats": [
       {
         "number": "100+",
@@ -183,24 +179,6 @@
         "role": "Backend Developer",
         "image": "/teams/team1.jpg",
         "bio": "Visionary leader with 15+ years of tech experience"
-      },
-      {
-        "name": "Jems Patel",
-        "role": "Frontend Developer",
-        "image": "/teams/team2.jpg",
-        "bio": "Full-stack developer with expertise in modern web technologies"
-      },
-      {
-        "name": "Vraj Patel",
-        "role": "UI/UX Designer",
-        "image": "/teams/team3.jpg",
-        "bio": "Creative designer focused on user-centered experiences"
-      },
-      {
-        "name": "Devkumar Patel",
-        "role": "AI/ML Engineer",
-        "image": "/teams/team4.jpg",
-        "bio": "Experienced manager ensuring smooth project delivery"
       }
     ]
   },
@@ -263,8 +241,62 @@
       }
     }
   },
+  "pricing": {
+    "title": "Our Pricing Plans",
+    "subtitle": "Choose the perfect plan for your business needs",
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "$999",
+        "period": "one-time",
+        "description": "Perfect for small businesses and startups",
+        "features": [
+          "5 Page Website",
+          "Responsive Design",
+          "Basic SEO Setup",
+          "Contact Form",
+          "1 Month Support",
+          "SSL Certificate"
+        ],
+        "popular": false
+      },
+      {
+        "name": "Professional",
+        "price": "$2,499",
+        "period": "one-time",
+        "description": "Ideal for growing businesses",
+        "features": [
+          "10 Page Website",
+          "Custom Design",
+          "Advanced SEO",
+          "E-commerce Integration",
+          "3 Months Support",
+          "Analytics Setup",
+          "Content Management System"
+        ],
+        "popular": true
+      },
+      {
+        "name": "Enterprise",
+        "price": "$4,999",
+        "period": "one-time",
+        "description": "Complete solution for large organizations",
+        "features": [
+          "Unlimited Pages",
+          "Custom Development",
+          "Premium SEO",
+          "Full E-commerce Store",
+          "6 Months Support",
+          "Advanced Analytics",
+          "API Integration",
+          "Priority Support"
+        ],
+        "popular": false
+      }
+    ]
+  },
   "metadata": {
-    "title": "Decentrix - Web Development Solutions",
+    "title": "SiteCrafters - Web Development Solutions",
     "description": "Professional web development services for modern businesses"
   }
 } 
