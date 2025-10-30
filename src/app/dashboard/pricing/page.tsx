@@ -145,7 +145,7 @@ export default function DashboardPricing() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <div className="border-b border-gray-200 pb-4">
-              <h3 className="font-semibold text-gray-900 mb-2">What's included in the pricing?</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">What&lsquo;s included in the pricing?</h3>
               <p className="text-gray-600">All plans include design, development, testing, deployment, and initial support. Additional services are available separately.</p>
             </div>
             <div className="border-b border-gray-200 pb-4">
@@ -158,7 +158,7 @@ export default function DashboardPricing() {
             </div>
             <div className="border-b border-gray-200 pb-4">
               <h3 className="font-semibold text-gray-900 mb-2">Can I upgrade my plan later?</h3>
-              <p className="text-gray-600">Absolutely! You can upgrade to a higher plan at any time. We'll prorate the difference and migrate your project seamlessly.</p>
+              <p className="text-gray-600">Absolutely! You can upgrade to a higher plan at any time. We&lsquo;ll prorate the difference and migrate your project seamlessly.</p>
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 mb-2">What payment methods do you accept?</h3>

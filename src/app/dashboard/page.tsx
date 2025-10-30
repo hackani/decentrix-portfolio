@@ -24,7 +24,7 @@ export default function DashboardHome() {
             Welcome back, {user?.email}!
           </h1>
           <p className="text-gray-600">
-            Here's an overview of your Site Crafter dashboard
+            Here&lsquo;s an overview of your Site Crafter dashboard
           </p>
         </motion.div>
 

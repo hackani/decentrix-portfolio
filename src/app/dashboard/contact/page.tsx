@@ -122,7 +122,7 @@ export default function DashboardContact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <p className="text-gray-600">{siteData.footer.contactInfo.email}</p>
-                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500">We&lsquo;ll respond within 24 hours</p>
                   </div>
                 </div>
 
@@ -209,7 +209,7 @@ export default function DashboardContact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-                <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                <p>Thank you for contacting us. We&lsquo;ll get back to you within 24 hours.</p>
                 <button
                   onClick={() => setFormStatus(prev => ({ ...prev, isSubmitted: false }))}
                   className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
