@@ -9,8 +9,9 @@ import ScrollableProjects from '@/components/ScrollableProjects';
 import ScrollableTeam from '@/components/ScrollableTeam';
 import { useState } from "react";
 import { ContactFormData, ContactFormStatus } from "@/types/contact";
+import Link from "next/link";
 
-export default function Home() {
+export default function LandingPage() {
   // Form state
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -92,6 +93,37 @@ export default function Home() {
   
   return (
     <div className="w-full">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Image
+                src={siteData.company.logo}
+                alt={siteData.company.name}
+                width={40}
+                height={40}
+                className="rounded-lg"
+              />
+              <span className="text-xl font-bold text-gray-800">{siteData.company.name}</span>
+            </div>
+            <div className="flex items-center space-x-6">
+              <a href="#home" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+              <a href="#services" className="text-gray-600 hover:text-blue-600 transition-colors">Services</a>
+              <a href="#projects" className="text-gray-600 hover:text-blue-600 transition-colors">Projects</a>
+              <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+              <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+              <Link 
+                href="/login"
+                className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <AnimatedBackground />
@@ -105,14 +137,22 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">{siteData.hero.title}</h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">{siteData.hero.subtitle}</p>
-            <motion.a 
-              href={siteData.hero.cta.href}
-              className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors inline-block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {siteData.hero.cta.text}
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a 
+                href={siteData.hero.cta.href}
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors inline-block"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {siteData.hero.cta.text}
+              </motion.a>
+              <Link 
+                href="/login"
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-block"
+              >
+                Client Portal
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -322,6 +362,62 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <Image
+                  src={siteData.company.logo}
+                  alt={siteData.company.name}
+                  width={40}
+                  height={40}
+                  className="rounded-lg"
+                />
+                <span className="text-xl font-bold">{siteData.company.name}</span>
+              </div>
+              <p className="text-gray-400">{siteData.company.description}</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                {siteData.footer.quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <ul className="space-y-2">
+                {siteData.footer.services.map((service, index) => (
+                  <li key={index} className="text-gray-400">
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+              <div className="space-y-2 text-gray-400">
+                <p>{siteData.footer.contactInfo.email}</p>
+                <p>{siteData.footer.contactInfo.phone}</p>
+                <p className="text-sm">{siteData.footer.contactInfo.address}</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 {siteData.company.name}. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
+
+
