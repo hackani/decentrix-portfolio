@@ -25,8 +25,63 @@
     {
       "name": "Contact",
       "href": "#contact"
+    },
+    {
+      "name": "Pricing",
+      "href": "#pricing"
     }
   ],
+  "pricing": {
+    "title": "Our Pricing",
+    "subtitle": "Choose the plan that's right for you.",
+    "plans": [
+      {
+        "title": "Static Website",
+        "price": "₹20,000",
+        "features": [
+          "5-7 Pages",
+          "Responsive Design",
+          "Contact Form",
+          "Free SSL Certificate",
+          "1 Year Free Support"
+        ],
+        "cta": {
+          "text": "Get Started",
+          "href": "#contact"
+        }
+      },
+      {
+        "title": "Dynamic Website",
+        "price": "₹50,000",
+        "features": [
+          "Up to 15 Pages",
+          "Admin Panel",
+          "Database Integration",
+          "Content Management System",
+          "Enhanced Security"
+        ],
+        "cta": {
+          "text": "Get Started",
+          "href": "#contact"
+        }
+      },
+      {
+        "title": "E-commerce Website",
+        "price": "₹90,000",
+        "features": [
+          "Unlimited Products",
+          "Payment Gateway Integration",
+          "Customer Accounts",
+          "Order Management",
+          "Advanced Analytics"
+        ],
+        "cta": {
+          "text": "Get Started",
+          "href": "#contact"
+        }
+      }
+    ]
+  },
   "hero": {
     "title": "Welcome to SiteCrafters",
     "subtitle": "Transforming Ideas into Digital Reality",
